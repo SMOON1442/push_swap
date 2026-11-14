@@ -4,7 +4,7 @@ NAME = push_swap
 FT_PRINTF = utils/ft_printf/libftprintf.a
 SRCS = algorithms/simple.c utils/utils.c \
 	   operations/push.c operations/swap.c \
-	   operations/rotate.c operations/main.c \
+	   operations/rotate.c main.c \
 	   parse/parse.c algorithms/complex.c
 OBJS = $(SRCS:.c=.o)
 
