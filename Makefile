@@ -5,7 +5,7 @@ FT_PRINTF = utils/ft_printf/libftprintf.a
 SRCS = algorithms/simple.c utils/utils.c \
 	   operations/push.c operations/swap.c \
 	   operations/rotate.c operations/main.c \
-	   parse/parse.c
+	   parse/parse.c algorithms/complex.c
 OBJS = $(SRCS:.c=.o)
 
 MAKE_PRINTF = $(MAKE) -C utils/ft_printf

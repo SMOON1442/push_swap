@@ -19,8 +19,10 @@ static void	free_stack(t_stack **s)
 
 static void	run_strategy(t_opts *opts, t_stack **a, t_stack **b)
 {
-	(void)opts; // will use after adding other algos
-	sort_simple(a, b);
+	if (opts->strategy == SIMPLE)
+		sort_simple(a, b);
+	else
+		sort_complex(a, b);
 }
 
 int	main(int ac, char **av)
