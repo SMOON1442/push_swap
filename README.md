@@ -22,11 +22,11 @@ To recompile everything from scratch:
 
 To test the program, run `push_swap` and pipe its output to `checker_linux`:
 
-    ./push_swap [your_array_of_ints] | ./checker_linux [same_array_of_ints]
+    ./push_swap [--algo] [your_array_of_ints] | ./checker_linux [same_array_of_ints]
 
 Example:
 
-    ./push_swap 4 67 3 87 23 | ./checker_linux 4 67 3 87 23
+    ./push_swap --simple 4 67 3 87 23 | ./checker_linux 4 67 3 87 23
 
 The checker should display `OK` if the sorting instructions are correct, or `KO` if they are not.
 
