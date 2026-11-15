@@ -6,24 +6,13 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 09:14:08 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/13 12:20:59 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/14 16:43:23 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithms.h"
 #include "operations.h"
 #include "utils.h"
-
-static int	check_sorted(t_stack *a)
-{
-	while (a && a->next)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
 
 static void pass(t_stack **a, int current)
 {

@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 21:53:43 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/13 11:18:21 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/15 11:17:16 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,38 +55,25 @@ void	ft_stack_addback(t_stack **stack, t_stack *new)
 	tmp->next = new;
 }
 
-int	ft_atoi(const char *c)
+int	check_sorted(t_stack *a)
 {
-	int	s;
-	int	n;
-
-	n = 0;
-	s = 1;
-	while (*c == ' ' || (*c >= 9 && *c <= 13))
-		c++;
-	if (*c == '-' || *c == '+')
+	while (a && a->next)
 	{
-		if (*c == '-')
-			s = -1;
-		c++;
+		if (a->content > a->next->content)
+			return (0);
+		a = a->next;
 	}
-	while (*c >= '0' && *c <= '9')
-	{
-		n = n * 10 + (*c - '0');
-		c++;
-	}
-	return (n * s);
+	return (1);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	free_stack(t_stack **s)
 {
-	while (n && *s1 && *s1 == *s2)
+	t_stack	*tmp;
+
+	while (*s)
 	{
-		s1++;
-		s2++;
-		n--;
+		tmp = (*s)->next;
+		free(*s);
+		*s = tmp;
 	}
-	if (!n)
-		return (0);
-	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

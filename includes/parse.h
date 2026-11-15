@@ -9,9 +9,9 @@
 
 typedef struct s_opts
 {
-	int	strategy;
-	int	bench;
-}		t_opts;
+	int		strategy;
+	double	bench;
+}			t_opts;
 
 int	parse_args(int ac, char **av, t_opts *opts, t_stack **a);
 

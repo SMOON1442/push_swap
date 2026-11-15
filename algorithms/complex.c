@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/14 14:20:49 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/14 14:25:02 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/14 16:43:39 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,6 @@ static int	get_bit(int value, int bit)
 
 	u = (unsigned int)value + SIGN_BIT;
 	return ((u >> bit) & 1);
-}
-
-static int	is_sorted(t_stack *a)
-{
-	while (a && a->next)
-	{
-		if (a->content > a->next->content)
-			return (0);
-		a = a->next;
-	}
-	return (1);
 }
 
 static void	pass(t_stack **a, t_stack **b, int size, int bit)
@@ -57,7 +46,7 @@ void	sort_complex(t_stack **a, t_stack **b)
 
 	size = ft_stacksize(*a);
 	bit = 0;
-	while (bit < 32 && !is_sorted(*a))
+	while (bit < 32 && !check_sorted(*a))
 	{
 		pass(a, b, size, bit);
 		bit++;

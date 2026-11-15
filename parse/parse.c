@@ -1,4 +1,3 @@
-#include <limits.h>
 #include "parse.h"
 
 static int	parse_flag(char *s, t_opts *opts)
@@ -32,16 +31,26 @@ static int	has_dup(t_stack *a, int val)
 static int	add_number(t_stack **a, char *s)
 {
 	int		val;
+	int		i;
+	int		k;
 	t_stack	*node;
+	char	**arr;
 
-	val = ft_atoi(s);
-	if (!val || has_dup(*a, val))
-		return (0);
-	node = ft_stacknew(val);
-	if (!node)
-		return (0);
-	ft_stack_addback(a, node);
-	return (1);
+	arr = ft_split(s, ' ');
+	k = arr_len(s, ' ');
+	i = 0;
+	while (arr[i])
+	{
+		val = ft_atoi(arr[i]);
+		if ((!val && *arr[i] != '0')|| has_dup(*a, val))
+			return(arr_free(arr, k), 0);
+		node = ft_stacknew(val);
+		if (!node)
+			return(arr_free(arr, k), 0);
+		ft_stack_addback(a, node);
+		i++;
+	}
+	return (arr_free(arr, k), 1);
 }
 
 int	parse_args(int ac, char **av, t_opts *opts, t_stack **a)

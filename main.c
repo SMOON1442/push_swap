@@ -5,19 +5,7 @@
 #include "parse.h"
 #include "utils.h"
 
-static void	free_stack(t_stack **s)
-{
-	t_stack	*tmp;
-
-	while (*s)
-	{
-		tmp = (*s)->next;
-		free(*s);
-		*s = tmp;
-	}
-}
-
-static void	run_strategy(t_opts *opts, t_stack **a, t_stack **b)
+static void	strategy(t_opts *opts, t_stack **a, t_stack **b)
 {
 	if (opts->strategy == SIMPLE)
 		sort_simple(a, b);
@@ -30,12 +18,12 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	t_opts	opts;
-//	t_stack	*tmp;
+	t_stack	*tmp;
 
 	a = NULL;
 	b = NULL;
 	opts.strategy = ADAPTIVE;
-	opts.bench = 0;
+	opts.bench = 0; // will use when --bench is added
 	if (!parse_args(ac, av, &opts, &a))
 	{
 		write(2, "Error\n", 6);
@@ -43,15 +31,13 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	if (a)
-		run_strategy(&opts, &a, &b);
-/*
+		strategy(&opts, &a, &b);
 	tmp = a;
 	while (tmp)
 	{
 		ft_printf("%d\n", tmp->content);
 		tmp = tmp->next;
 	}
-*/
 	free_stack(&a);
 	return (0);
 }
