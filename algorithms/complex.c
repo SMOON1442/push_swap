@@ -1,54 +1,56 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   complex.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/14 14:20:49 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/14 16:43:39 by moboulah         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "algorithms.h"
 #include "operations.h"
 #include "utils.h"
+#include <limits.h>
 
-static int	get_bit(int value, int bit)
+static t_best	best_move(t_stack *a, t_stack *b)
 {
-	unsigned int	u;
-
-	u = (unsigned int)value + SIGN_BIT;
-	return ((u >> bit) & 1);
-}
-
-static void	pass(t_stack **a, t_stack **b, int size, int bit)
-{
-	int	i;
+	int		i;
+	int		na;
+	int		nb;
+	t_best	cur;
+	t_best	best;
 
 	i = 0;
-	while (i < size)
+	na = ft_stacksize(a);
+	nb = ft_stacksize(b);
+	best.total = INT_MAX;
+	while (b)
 	{
-		if (get_bit((*a)->content, bit))
-			ra(a);
-		else
-			pb(b, a);
+		cur.cost_a = get_cost(target_pos(b->content, a), na);
+		cur.cost_b = get_cost(i, nb);
+		cur.total = combined_moves(cur.cost_a, cur.cost_b);
+		if (cur.total < best.total)
+			best = cur;
+		b = b->next;
 		i++;
 	}
-	while (*b)
-		pa(a, b);
+	return (best);
 }
 
 void	sort_complex(t_stack **a, t_stack **b)
 {
-	int	size;
-	int	bit;
+	int		n;
+	t_best	best;
 
-	size = ft_stacksize(*a);
-	bit = 0;
-	while (bit < 32 && !check_sorted(*a))
+	if (check_sorted(*a))
+		return ;
+	n = ft_stacksize(*a);
+	if (n == 2)
+		sa(a);
+	else if (n == 3)
+		sort_three(a);
+	else
 	{
-		pass(a, b, size, bit);
-		bit++;
+		while (n-- > 3)
+			pb(b, a);
+		sort_three(a);
+		while (*b)
+		{
+			best = best_move(*a, *b);
+			execute(best.cost_a, best.cost_b, a, b);
+			pa(a, b);
+		}
+		rmin_top(a);
 	}
 }

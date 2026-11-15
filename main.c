@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	t_opts	opts;
-	t_stack	*tmp;
+//	t_stack	*tmp;
 
 	a = NULL;
 	b = NULL;
@@ -32,12 +32,14 @@ int	main(int ac, char **av)
 	}
 	if (a)
 		strategy(&opts, &a, &b);
+/*
 	tmp = a;
 	while (tmp)
 	{
 		ft_printf("%d\n", tmp->content);
 		tmp = tmp->next;
 	}
+*/
 	free_stack(&a);
 	return (0);
 }
