@@ -1,10 +1,8 @@
-#include <stdlib.h>
-#include <unistd.h>
 #include "algorithms.h"
 #include "operations.h"
 #include "parse.h"
 #include "utils.h"
-
+#include <stdio.h>
 static void	strategy(t_opts *opts, t_stack **a, t_stack **b)
 {
 	if (opts->strategy == SIMPLE)
@@ -30,6 +28,10 @@ int	main(int ac, char **av)
 		free_stack(&a);
 		return (1);
 	}
+	if (opts.bench)
+	{
+		printf("%f\n", compute_disorder(&a));
+	}
 	if (a)
 		strategy(&opts, &a, &b);
 /*
@@ -40,6 +42,7 @@ int	main(int ac, char **av)
 		tmp = tmp->next;
 	}
 */
+	printf("%f\n", compute_disorder(&a));
 	free_stack(&a);
 	return (0);
 }

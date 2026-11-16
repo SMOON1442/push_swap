@@ -14,5 +14,6 @@ typedef struct s_opts
 }			t_opts;
 
 int	parse_args(int ac, char **av, t_opts *opts, t_stack **a);
+double	compute_disorder(t_stack **a);
 
 #endif

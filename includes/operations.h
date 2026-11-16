@@ -6,13 +6,14 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 09:34:38 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/13 12:11:29 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 10:40:46 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 # include <stdlib.h>
+# include <unistd.h>
 # include "ft_printf.h"
 
 typedef struct s_stack

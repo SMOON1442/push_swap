@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:17:15 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/13 11:29:49 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 10:39:53 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	push(t_stack **primary, t_stack **auxiliary)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
-	ft_printf("pb\n");
+	write(1, "pb\n", 3);
 }
