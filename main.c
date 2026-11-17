@@ -24,16 +24,19 @@ int	main(int ac, char **av)
 	opts.bench = 0; // will use when --bench is added
 	if (!parse_args(ac, av, &opts, &a))
 	{
-		write(2, "Error\n", 6);
+		ft_printf("Error\n");
 		free_stack(&a);
 		return (1);
 	}
 	if (opts.bench)
 	{
-		printf("%f\n", compute_disorder(&a));
+		fill_bench()->strategy = opts.strategy;
+		fill_bench()->disorder = compute_disorder(&a);
 	}
 	if (a)
 		strategy(&opts, &a, &b);
+	if (opts.bench)
+		print_bench(fill_bench());
 /*
 	tmp = a;
 	while (tmp)
@@ -42,7 +45,6 @@ int	main(int ac, char **av)
 		tmp = tmp->next;
 	}
 */
-	printf("%f\n", compute_disorder(&a));
 	free_stack(&a);
 	return (0);
 }

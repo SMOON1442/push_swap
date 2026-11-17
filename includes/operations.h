@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 09:34:38 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 10:40:46 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 22:39:00 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,31 @@
 # include <unistd.h>
 # include "ft_printf.h"
 
+typedef struct s_bench
+{
+	double			disorder;
+	unsigned int	sa;
+	unsigned int	sb;
+	unsigned int	ss;
+	unsigned int	pa;
+	unsigned int	pb;
+	unsigned int	ra;
+	unsigned int	rb;
+	unsigned int	rr;
+	unsigned int	rra;
+	unsigned int	rrb;
+	unsigned int	rrr;
+	int				strategy;
+}					t_bench;
+
+t_bench	*fill_bench(void);
+
 typedef struct s_stack
 {
 	int					content;
 	struct s_stack		*next;
 }						t_stack;
+
 void	swap(t_stack **stack);
 void	sa(t_stack **a);
 void	sb(t_stack **b);

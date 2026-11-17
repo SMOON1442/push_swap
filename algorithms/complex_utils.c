@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 14:38:23 by moboulah          #+#    #+#             */
+/*   Updated: 2026/11/16 14:53:00 by moboulah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "algorithms.h"
-#define ABS(x) (((x) < 0) ? -(x) : (x))
 
 int	min_pos(t_stack *a)
 {
@@ -66,9 +77,9 @@ int	combined_moves(int cost_a, int cost_b)
 {
 	if (cost_a * cost_b > 0)
 	{
-		if (ABS(cost_a) >= ABS(cost_b))
-			return (ABS(cost_a));
-		return (ABS(cost_b));
+		if (ft_abs(cost_a) >= ft_abs(cost_b))
+			return (ft_abs(cost_a));
+		return (ft_abs(cost_b));
 	}
-	return (ABS(cost_a) + ABS(cost_b));
+	return (ft_abs(cost_a) + ft_abs(cost_b));
 }

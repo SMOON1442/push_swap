@@ -6,9 +6,10 @@ SRCS = algorithms/simple.c utils/utils.c \
 	   operations/push.c operations/swap.c \
 	   operations/rotate.c operations/rrotate.c\
 	   parse/parse.c algorithms/complex.c main.c \
-	   utils/ft_split.c utils/utils_string.c \
+	   parse/ft_split.c parse/parse_utils.c \
 	   algorithms/complex_utils.c algorithms/complex_exec.c \
-	   parse/disorder.c
+	   parse/disorder.c utils/extra_utils.c operations/bench.c \
+	   algorithms/print_bench.c
 OBJS = $(SRCS:.c=.o)
 
 MAKE_PRINTF = $(MAKE) -C utils/ft_printf

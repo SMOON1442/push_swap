@@ -13,7 +13,10 @@ typedef struct s_opts
 	double	bench;
 }			t_opts;
 
+int	ft_atoi(const char *c);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
 int	parse_args(int ac, char **av, t_opts *opts, t_stack **a);
+char	**ft_split(char const *s, char c);
 double	compute_disorder(t_stack **a);
 
 #endif

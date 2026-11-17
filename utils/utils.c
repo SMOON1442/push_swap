@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 21:53:43 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/15 11:17:16 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 14:36:27 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_stack	*ft_stacknew(int a)
 		return (NULL);
 	stack->content = a;
 	stack->next = NULL;
-
 	return (stack);
 }
 

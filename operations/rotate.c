@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:57:58 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 10:41:15 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 21:36:55 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,14 @@ void	rotate(t_stack **stack)
 void	ra(t_stack **a)
 {
 	rotate(a);
+	fill_bench()->ra++;
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
 	rotate(b);
+	fill_bench()->rb++;
 	write(1, "rb\n", 3);
 }
 
@@ -51,5 +53,6 @@ void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
+	fill_bench()->rr++;
 	write(1, "rr\n", 3);
 }

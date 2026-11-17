@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_string.c                                     :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 11:03:21 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 09:18:23 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 16:04:46 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "parse.h"
 #include <limits.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	ft_atoi(const char *c)
 {
-	int	s;
+	int		s;
 	long	n;
 
 	n = 0;
@@ -44,7 +44,7 @@ int	ft_atoi(const char *c)
 	while (*c >= '0' && *c <= '9')
 	{
 		n = n * 10 + (*c - '0');
-		if (n > INT_MAX)
+		if (n > 2147483647)
 			return (0);
 		c++;
 	}

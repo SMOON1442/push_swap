@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 09:14:08 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/14 16:43:23 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/16 14:37:36 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "operations.h"
 #include "utils.h"
 
-static void pass(t_stack **a, int current)
+static void	pass(t_stack **a, int current)
 {
 	int	i;
 
