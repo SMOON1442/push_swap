@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:57:58 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 21:36:55 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/17 22:18:14 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	rotate(t_stack **stack)
 		current = current->next;
 	current->next = *stack;
 	(*stack)->next = NULL;
-	*stack= tmp;
+	*stack = tmp;
 }
 
 void	ra(t_stack **a)

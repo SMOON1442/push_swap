@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/17 22:16:37 by moboulah          #+#    #+#             */
+/*   Updated: 2026/11/17 22:17:23 by moboulah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "algorithms.h"
 #include "operations.h"
 #include "parse.h"
 #include "utils.h"
-#include <stdio.h>
+
 static void	strategy(t_opts *opts, t_stack **a, t_stack **b)
 {
 	if (opts->strategy == SIMPLE)
@@ -16,12 +28,11 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	t_opts	opts;
-//	t_stack	*tmp;
 
 	a = NULL;
 	b = NULL;
 	opts.strategy = ADAPTIVE;
-	opts.bench = 0; // will use when --bench is added
+	opts.bench = 0;
 	if (!parse_args(ac, av, &opts, &a))
 	{
 		ft_printf("Error\n");
@@ -37,14 +48,6 @@ int	main(int ac, char **av)
 		strategy(&opts, &a, &b);
 	if (opts.bench)
 		print_bench(fill_bench());
-/*
-	tmp = a;
-	while (tmp)
-	{
-		ft_printf("%d\n", tmp->content);
-		tmp = tmp->next;
-	}
-*/
 	free_stack(&a);
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/17 22:19:43 by moboulah          #+#    #+#             */
+/*   Updated: 2026/11/17 22:20:47 by moboulah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parse.h"
 
 static int	parse_flag(char *s, t_opts *opts)
@@ -42,11 +54,11 @@ static int	add_number(t_stack **a, char *s)
 	while (arr[i])
 	{
 		val = ft_atoi(arr[i]);
-		if ((!val && *arr[i] != '0')|| has_dup(*a, val))
-			return(arr_free(arr, k), 0);
+		if ((!val && *arr[i] != '0') || has_dup(*a, val))
+			return (arr_free(arr, k), 0);
 		node = ft_stacknew(val);
 		if (!node)
-			return(arr_free(arr, k), 0);
+			return (arr_free(arr, k), 0);
 		ft_stack_addback(a, node);
 		i++;
 	}
