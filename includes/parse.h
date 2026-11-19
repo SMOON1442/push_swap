@@ -22,7 +22,7 @@
 typedef struct s_opts
 {
 	int		strategy;
-	double	bench;
+	int		bench;
 }			t_opts;
 
 int		ft_atoi(const char *c);
