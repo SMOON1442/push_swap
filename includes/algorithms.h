@@ -6,7 +6,7 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 09:14:17 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 14:58:19 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/20 03:28:14 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	sort_three(t_stack **a);
 void	execute(int cost_a, int cost_b, t_stack **a, t_stack **b);
 void	rmin_top(t_stack **a);
 void	sort_complex(t_stack **a, t_stack **b);
+int		get_pos(t_stack *b, int valeur);
+int		index_arr(int n, int *ar, int s);
+int		chunk_limit(int n);
 
 #endif
