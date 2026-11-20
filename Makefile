@@ -12,7 +12,7 @@ SRCS = algorithms/simple.c utils/utils.c \
 	   algorithms/print_bench.c algorithms/medium.c algorithms/medium_utils.c
 OBJS = $(SRCS:.c=.o)
 MANDATORY = main.o
-BONUS = bonus.o
+BONUS = bonus/main_bonus.o bonus/utils_bonus.o
 CHECKER = checker
 
 MAKE_PRINTF = $(MAKE) -C utils/ft_printf
