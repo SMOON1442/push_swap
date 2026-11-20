@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   medium.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleghris <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/19 21:20:37 by fleghris          #+#    #+#             */
+/*   Updated: 2026/11/19 21:20:39 by fleghris         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "algorithms.h"
 
-void    sort_arr(int *arr, int n)
+static void    sort_arr(int *arr, int n)
 {
     int i;
     int j;
@@ -24,7 +36,7 @@ void    sort_arr(int *arr, int n)
     }
 }
 
-void a_to_b(t_stack **a, t_stack **b, int *arr, int limit)
+static void a_to_b(t_stack **a, t_stack **b, int *arr, int limit)
 {
     int i;
     int sz;
@@ -49,7 +61,7 @@ void a_to_b(t_stack **a, t_stack **b, int *arr, int limit)
     }
 }
 
-void b_to_a(t_stack **a, t_stack **b, int *arr, int sz)
+static void b_to_a(t_stack **a, t_stack **b, int *arr, int sz)
 {
     int i;
 
@@ -74,50 +86,7 @@ void b_to_a(t_stack **a, t_stack **b, int *arr, int sz)
     }
 }
 
-int     chunk_limit(int n)
-{
-    int i;
-
-    i = 0;
-    while(i < n)
-    {
-        if (i * i >= n)
-            return (i);
-        i++;
-    }
-    return (-1);
-}
-
-int     index_arr(int n, int *ar, int s)
-{
-    int i;
-
-    i = 0;
-    while (i < s)
-    {
-        if (ar[i] == n)
-            return (i);
-        i++;
-    }
-    return (-1);
-}
-
-int     get_pos(t_stack *b, int valeur)
-{
-    int i;
-
-    i = 0;
-    while (b)
-    {
-        if (b->content == valeur)
-            return (i);
-        b = b->next;
-        i++;
-    }
-    return (-1);
-}
-
-void    fill_arr(t_stack *a, int *arr, int sz)
+static void    fill_arr(t_stack *a, int *arr, int sz)
 {
     int i;
 
@@ -137,6 +106,8 @@ void	sort_medium(t_stack **a, t_stack **b)
     int limit;
     int *arr;
     
+    if (check_sorted(*a))
+		return ;
     sz = ft_stacksize(*a);
     arr = malloc(sz * sizeof(int));
     if (!arr)
