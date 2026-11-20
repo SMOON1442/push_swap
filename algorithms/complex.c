@@ -6,14 +6,13 @@
 /*   By: moboulah <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 14:42:23 by moboulah          #+#    #+#             */
-/*   Updated: 2026/11/16 14:42:39 by moboulah         ###   ########.fr       */
+/*   Updated: 2026/11/19 03:15:24 by moboulah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algorithms.h"
 #include "operations.h"
 #include "utils.h"
-#include <limits.h>
 
 static t_best	best_move(t_stack *a, t_stack *b)
 {
@@ -26,7 +25,7 @@ static t_best	best_move(t_stack *a, t_stack *b)
 	i = 0;
 	na = ft_stacksize(a);
 	nb = ft_stacksize(b);
-	best.total = INT_MAX;
+	best.total = 2147483647;
 	while (b)
 	{
 		cur.cost_a = get_cost(target_pos(b->content, a), na);
